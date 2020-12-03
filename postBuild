@@ -3,9 +3,13 @@ wget -q -O elm-pb/BOUT.inp https://zenodo.org/record/4295926/files/BOUT.inp?down
 wget -q -O elm-pb/cbm18_dens8.grid_nx68ny64.nc https://zenodo.org/record/4295926/files/cbm18_dens8.grid_nx68ny64.nc?download=1
 wget -q -O elm-pb/BOUT.dmp.0.nc https://zenodo.org/record/4295926/files/BOUT.dmp.0.nc?download=1
 
-# blob2d
-wget -q -O blob2d/BOUT.inp https://zenodo.org/record/4298582/files/BOUT.inp?download=1
-wget -q -O blob2d/BOUT.dmp.0.nc https://zenodo.org/record/4298582/files/BOUT.dmp.0.nc?download=1
+# tutorial
+wget -q -O tutorial/delta_1/BOUT.dmp.0.nc https://zenodo.org/record/4306115/files/BOUT.dmp.0.nc?download=1
+wget -q -O tutorial/delta_0.25/BOUT.dmp.0.nc https://zenodo.org/record/4306115/files/BOUT.dmp.0.nc_0.25?download=1
+wget -q -O tutorial/delta_10/BOUT.dmp.0.nc https://zenodo.org/record/4306115/files/BOUT.dmp.0.nc_10?download=1
+
+# blob2d uses the same data files as tutorial
+cp tutorial/delta_1/{BOUT.inp,BOUT.dmp.0.nc} blob2d/
 
 # make Jupyter use whole width of browser window
 mkdir -p ~/.jupyter/custom
