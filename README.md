@@ -37,7 +37,8 @@ $ jupyter notebook
 ```
 A Jupyter session will open in a web browser.  Click on the subdirectory for
 the example you are interested in, and then click on the Jupyter notebook (file
-ending `.ipynb`) to open the example, and follow the instructions there.
+ending `.ipynb`) to open the example (if you are new to xarray and xBOUT, we
+suggest starting with 'tutorial'), and follow the instructions there.
 
 Contributor guidelines
 ----------------------
