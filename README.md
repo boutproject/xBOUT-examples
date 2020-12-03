@@ -7,8 +7,13 @@ A set of self-contained examples showing various features of
 Getting started
 ---------------
 
-These examples require xBOUT and Jupyter. You can install these and all their
-requirements using conda (after setting up
+The quickest way to get started is to run the notebook in your browser, on
+[mybinder.org](https://mybinder.org/), by clicking this badge:
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/boutproject/xBOUT-examples/master)
+
+Alternatively, to run these examples on your own machine, you will require
+xBOUT and Jupyter.  You can install these and all their requirements using
+conda (after setting up
 [anaconda](https://www.anaconda.com/) or
 [miniconda](https://docs.conda.io/en/latest/miniconda.html)) by running
 ```
@@ -48,6 +53,9 @@ Some guidelines for making examples:
 
     * Please provide a setup call to download the data from Zenodo if it is not
       present.
+
+    * Add a line or lines to the `postBuild` file to download your data for
+      [binder.org](binder.org).
 
 * We will use squash-merging of pull requests to minimise the number of data
   objects (e.g. plot output in Jupyter notebooks) present in the history.
