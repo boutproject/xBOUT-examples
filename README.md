@@ -8,7 +8,7 @@ Getting started
 ---------------
 
 The quickest way to get started is to run the notebook in your browser, on
-[binder.org](binder.org), by clicking this badge:
+[mybinder.org](https://mybinder.org/), by clicking this badge:
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/boutproject/xBOUT-examples/master)
 
 Alternatively, to run these examples on your own machine, you will require
