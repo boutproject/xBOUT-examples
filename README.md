@@ -7,8 +7,13 @@ A set of self-contained examples showing various features of
 Getting started
 ---------------
 
-These examples require xBOUT and Jupyter. You can install these and all their
-requirements using conda (after setting up
+The quickest way to get started is to run the notebook in your browser, on
+[binder.org](binder.org), by clicking this badge:
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/boutproject/xBOUT-examples/master)
+
+Alternatively, to run these examples on your own machine, you will require
+xBOUT and Jupyter.  You can install these and all their requirements using
+conda (after setting up
 [anaconda](https://www.anaconda.com/) or
 [miniconda](https://docs.conda.io/en/latest/miniconda.html)) by running
 ```
