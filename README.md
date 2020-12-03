@@ -25,14 +25,19 @@ If you prefer to use [pip](https://pip.pypa.io/en/stable/) run
 $ pip install xbout jupyter
 ```
 
-Once xBOUT and Jupyter are installed, run
+We suggest getting a 'shallow clone' of this repo, to minimise the download
+size. Clone with
+```
+$ git clone --depth 1 https://github.com/boutproject/xBOUT-examples.git
+```
+
+Finally, navigate into the xBOUT-examples directory and run
 ```
 $ jupyter notebook
 ```
-in the xBOUT-examples directory. A Jupyter session will open in a web browser.
-Click on the subdirectory for the example you are interested in, and then click
-on the Jupyter notebook (file ending `.ipynb`) to open the example, and follow
-the instructions there.
+A Jupyter session will open in a web browser.  Click on the subdirectory for
+the example you are interested in, and then click on the Jupyter notebook (file
+ending `.ipynb`) to open the example, and follow the instructions there.
 
 Contributor guidelines
 ----------------------
