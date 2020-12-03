@@ -2,7 +2,32 @@ xBOUT examples
 ==============
 
 A set of self-contained examples showing various features of
-[`xBOUT`](github.com/boutproject/xBOUT).
+[xBOUT](github.com/boutproject/xBOUT).
+
+Getting started
+---------------
+
+These examples require xBOUT and Jupyter. You can install these and all their
+requirements using conda (after setting up
+[anaconda](https://www.anaconda.com/) or
+[miniconda](https://docs.conda.io/en/latest/miniconda.html)) by running
+```
+$ conda install -c conda-forge xbout jupyter
+```
+
+If you prefer to use [pip](https://pip.pypa.io/en/stable/) run
+```
+$ pip install xbout jupyter
+```
+
+Once xBOUT and Jupyter are installed, run
+```
+$ jupyter notebook
+```
+in the xBOUT-examples directory. A Jupyter session will open in a web browser.
+Click on the subdirectory for the example you are interested in, and then click
+on the Jupyter notebook (file ending `.ipynb`) to open the example, and follow
+the instructions there.
 
 Contributor guidelines
 ----------------------
