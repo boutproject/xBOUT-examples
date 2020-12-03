@@ -8,6 +8,9 @@ wget -q -O blob2d/BOUT.inp https://zenodo.org/record/4298582/files/BOUT.inp?down
 wget -q -O blob2d/cbm18_dens8.grid_nx68ny64.nc https://zenodo.org/record/4298582/files/cbm18_dens8.grid_nx68ny64.nc?download=1
 wget -q -O blob2d/BOUT.dmp.0.nc https://zenodo.org/record/4298582/files/BOUT.dmp.0.nc?download=1
 
+# hasegawa-wakatani
+wget -q -O hasegawa-wakatani/BOUT.dmp.0.nc https://zenodo.org/record/4304961/files/BOUT.dmp.0.nc?download=1
+
 # make Jupyter use whole width of browser window
 mkdir -p ~/.jupyter/custom
 cp .custom.css ~/.jupyter/custom/custom.css
