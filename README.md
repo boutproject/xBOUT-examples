@@ -49,6 +49,9 @@ Some guidelines for making examples:
     * Please provide a setup call to download the data from Zenodo if it is not
       present.
 
+    * Add a line or lines to the `postBuild` file to download your data for
+      [binder.org](binder.org).
+
 * We will use squash-merging of pull requests to minimise the number of data
   objects (e.g. plot output in Jupyter notebooks) present in the history.
 
