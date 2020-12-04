@@ -9,7 +9,7 @@ wget -q -O tutorial/delta_0.25/BOUT.dmp.0.nc https://zenodo.org/record/4306115/f
 wget -q -O tutorial/delta_10/BOUT.dmp.0.nc https://zenodo.org/record/4306115/files/BOUT.dmp.0.nc_10?download=1
 
 # blob2d uses the same data files as tutorial
-cp tutorial/delta_1/{BOUT.inp,BOUT.dmp.0.nc} blob2d/
+cp tutorial/delta_1/BOUT.inp tutorial/delta_1/BOUT.dmp.0.nc blob2d/
 
 # make Jupyter use whole width of browser window
 mkdir -p ~/.jupyter/custom
