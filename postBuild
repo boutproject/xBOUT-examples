@@ -11,6 +11,9 @@ wget -q -O tutorial/delta_10/BOUT.dmp.0.nc https://zenodo.org/record/4306115/fil
 # blob2d uses the same data files as tutorial
 cp tutorial/delta_1/BOUT.inp tutorial/delta_1/BOUT.dmp.0.nc blob2d/
 
+# hasegawa-wakatani
+wget -q -O hasegawa-wakatani/BOUT.dmp.0.nc https://zenodo.org/record/4304961/files/BOUT.dmp.0.nc?download=1
+
 # make Jupyter use whole width of browser window
 mkdir -p ~/.jupyter/custom
 cp .custom.css ~/.jupyter/custom/custom.css
