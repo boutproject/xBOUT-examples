@@ -33,7 +33,7 @@ jobs:
       run: |
         sudo apt-get update && sudo apt-get install libhdf5-dev libnetcdf-dev
         python -m pip install --upgrade pip
-        pip install --upgrade xbout jupyter
+        pip install --upgrade xbout jupyter mayavi wand
     - name: Test examples
       run: |
         # The brackets are needed so the whole command returns 1 if any notebook fails
