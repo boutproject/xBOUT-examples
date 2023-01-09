@@ -45,6 +45,9 @@ jobs:
       # Skip for Python-3.11 because Mayavi currently fails to build
       if: ${{ matrix.python-version != '3.x' }}
       run: |
+        # Try mayavi's tests??
+        pip install pytest
+        ETS_TOOLKIT=null pytest -v --pyargs mayavi
         # The brackets are needed so the whole command returns 1 if any script fails.
         # Note, the tests of python scripts must come first, because the
         # jupyter notebook tests work by converting the notebook to a Python
