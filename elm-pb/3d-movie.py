@@ -8,11 +8,15 @@ viewer](https://github.com/johnomotani/multigifview) helpful.
 """
 
 import dask
+from pathlib import Path
 from xbout import open_boutdataset
 
-datapath = "BOUT.dmp.*.nc"
-gridpath = "cbm18_dens8.grid_nx68ny64.nc"
+script_dir = Path(__file__, "..").resolve()
+
+datapath = script_dir.joinpath("BOUT.dmp.*.nc")
+gridpath = script_dir.joinpath("cbm18_dens8.grid_nx68ny64.nc")
 variable = "P"
+save_as = script_dir.joinpath(f"{variable}.gif")
 
 ds = open_boutdataset(
     datapath,
@@ -43,5 +47,5 @@ da.bout.plot3d(
     },
     mayavi_view=(-40, 80, 8),
     surface_xinds=(nx // 3, 38),
-    save_as=f"{variable}.gif",
+    save_as=save_as,
 )
