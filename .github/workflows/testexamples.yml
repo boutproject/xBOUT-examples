@@ -39,7 +39,7 @@ jobs:
       # Skip for Python-3.11 because Mayavi currently fails to build
       if: ${{ matrix.python-version != '3.x' }}
       run: |
-        pip install --upgrade mayavi wand numpy vtk traitsui
+        pip install --upgrade mayavi wand numpy vtk traitsui PyQt5
     - name: Test Python scripts
       # Skip for Python-3.11 because Mayavi currently fails to build
       if: ${{ matrix.python-version != '3.x' }}
