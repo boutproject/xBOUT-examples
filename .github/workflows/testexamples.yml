@@ -36,7 +36,11 @@ jobs:
         pip install --upgrade xbout jupyter mayavi wand
     - name: Test examples
       run: |
-        # The brackets are needed so the whole command returns 1 if any notebook fails
-        (for example in */*.ipynb; do jupyter nbconvert --to python --execute $example || exit 1; done)
-        # The brackets are needed so the whole command returns 1 if any script fails
+        # The brackets are needed so the whole command returns 1 if any script fails.
+        # Note, the tests of python scripts must come first, because the
+        # jupyter notebook tests work by converting the notebook to a Python
+        # script, and we don't want to test those scripts as they will fail due
+        # to iPython stuff not being imported.
         (for example in */*.py; do python $example || exit 1; done)
+        # The brackets are needed so the whole command returns 1 if any notebook fails.
+        (for example in */*.ipynb; do jupyter nbconvert --to python --execute $example || exit 1; done)
