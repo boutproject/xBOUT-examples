@@ -39,7 +39,7 @@ jobs:
       # Skip for Python-3.11 because Mayavi currently fails to build
       if: ${{ matrix.python-version != '3.x' }}
       run: |
-        pip install --upgrade mayavi wand numpy vtk PySide2
+        pip install --upgrade mayavi wand numpy vtk PyQt5
     - name: Test Python scripts
       # Skip for Python-3.11 because Mayavi currently fails to build
       if: ${{ matrix.python-version != '3.x' }}
@@ -49,7 +49,7 @@ jobs:
         # jupyter notebook tests work by converting the notebook to a Python
         # script, and we don't want to test those scripts as they will fail due
         # to iPython stuff not being imported.
-        (for example in */*.py; do python $example || exit 1; done)
+        (for example in */*.py; do ETS_TOOLKIT=null python $example || exit 1; done)
     - name: Test Jupyter notebooks
       run: |
         # The brackets are needed so the whole command returns 1 if any notebook fails.
