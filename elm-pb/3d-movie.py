@@ -9,6 +9,7 @@ viewer](https://github.com/johnomotani/multigifview) helpful.
 
 import dask
 from pathlib import Path
+import urllib.request
 from xbout import open_boutdataset
 
 script_dir = Path(__file__, "..").resolve()
@@ -17,6 +18,14 @@ datapath = script_dir.joinpath("BOUT.dmp.*.nc")
 gridpath = script_dir.joinpath("cbm18_dens8.grid_nx68ny64.nc")
 variable = "P"
 save_as = script_dir.joinpath(f"{variable}.gif")
+
+# Download data files if you do not have them already
+for filename in ["cbm18_dens8.grid_nx68ny64.nc", "BOUT.dmp.0.nc"]:
+    if not Path(filename).exists():
+        savepath = script_dir.joinpath(filename)
+        urllib.request.urlretrieve(
+            f"https://zenodo.org/record/4295926/files/{filename}?download=1", savepath
+        )
 
 ds = open_boutdataset(
     datapath,
