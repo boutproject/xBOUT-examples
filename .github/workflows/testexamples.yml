@@ -50,9 +50,7 @@ jobs:
         # jupyter notebook tests work by converting the notebook to a Python
         # script, and we don't want to test those scripts as they will fail due
         # to iPython stuff not being imported.
-        #(for example in */*.py; do python $example || exit 1; done)
-        pip install pytest
-        (for example in */*.py; do pytest $example || exit 1; done)
+        (for example in */*.py; do xvfb-run --server-args="-screen 0 1024x768x24" python $example || exit 1; done)
     - name: Test Jupyter notebooks
       run: |
         # The brackets are needed so the whole command returns 1 if any notebook fails.
