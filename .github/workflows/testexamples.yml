@@ -28,7 +28,7 @@ jobs:
         python-version: 3.x
     - name: Install dependencies
       run: |
-        sudo apt-get install libhdf5-dev libnetcdf-dev
+        sudo apt-get update && sudo apt-get install libhdf5-dev libnetcdf-dev
         python -m pip install --upgrade pip
         pip install --upgrade xbout jupyter
     - name: Test examples
