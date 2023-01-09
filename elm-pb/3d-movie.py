@@ -9,6 +9,9 @@ viewer](https://github.com/johnomotani/multigifview) helpful.
 
 from mayavi import mlab
 
+def test_fun():
+    print("foobar")
+
 #from argparse import ArgumentParser
 #import dask
 #from pathlib import Path
