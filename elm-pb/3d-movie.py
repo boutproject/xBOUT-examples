@@ -7,10 +7,25 @@ For viewing the `.gif` produced by this script, you might find the [multigifview
 viewer](https://github.com/johnomotani/multigifview) helpful.
 """
 
+from argparse import ArgumentParser
 import dask
 from pathlib import Path
 import urllib.request
 from xbout import open_boutdataset
+
+parser = ArgumentParser(description="Example of creating a 3d movie. Uses elm-pb data")
+parser.add_argument(
+    "--ci",
+    action="store_true",
+    default=False,
+    help="Change settings for running in headless mode on a CI server.",
+)
+args = parser.parse_args()
+
+if args.ci:
+    from mayavi import mlab
+
+    mlab.options.offscreen = True
 
 script_dir = Path(__file__, "..").resolve()
 

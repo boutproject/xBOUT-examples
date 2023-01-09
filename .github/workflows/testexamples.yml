@@ -34,21 +34,21 @@ jobs:
         sudo apt-get update && sudo apt-get install libhdf5-dev libnetcdf-dev
         python -m pip install --upgrade pip
         pip install --upgrade xbout jupyter
-    #- name: Install mayavi
-    #  # Skip for Python-3.11 because Mayavi currently fails to build
-    #  if: ${{ matrix.python-version != '3.x' }}
-    #  run: |
-    #    pip install --upgrade mayavi wand
-    #- name: Test Python scripts
-    #  # Skip for Python-3.11 because Mayavi currently fails to build
-    #  if: ${{ matrix.python-version != '3.x' }}
-    #  run: |
-    #    # The brackets are needed so the whole command returns 1 if any script fails.
-    #    # Note, the tests of python scripts must come first, because the
-    #    # jupyter notebook tests work by converting the notebook to a Python
-    #    # script, and we don't want to test those scripts as they will fail due
-    #    # to iPython stuff not being imported.
-    #    (for example in */*.py; do python $example || exit 1; done)
+    - name: Install mayavi
+      # Skip for Python-3.11 because Mayavi currently fails to build
+      if: ${{ matrix.python-version != '3.x' }}
+      run: |
+        pip install --upgrade mayavi wand
+    - name: Test Python scripts
+      # Skip for Python-3.11 because Mayavi currently fails to build
+      if: ${{ matrix.python-version != '3.x' }}
+      run: |
+        # The brackets are needed so the whole command returns 1 if any script fails.
+        # Note, the tests of python scripts must come first, because the
+        # jupyter notebook tests work by converting the notebook to a Python
+        # script, and we don't want to test those scripts as they will fail due
+        # to iPython stuff not being imported.
+        (for example in */*.py; do python $example || exit 1; done)
     - name: Test Jupyter notebooks
       run: |
         # The brackets are needed so the whole command returns 1 if any notebook fails.
