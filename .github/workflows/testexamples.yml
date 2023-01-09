@@ -4,11 +4,11 @@
 name: Test examples
 
 on:
-  pull_request:
-  schedule:
-    # Use odd number of minutes, because GitHub says the start of the hour is a
-    # high-load time.
-    - cron: '17 0 * * 0'
+  push:
+  #schedule:
+  #  # Use odd number of minutes, because GitHub says the start of the hour is a
+  #  # high-load time.
+  #  - cron: '17 0 * * 0'
 
 concurrency:
   group: ${{ github.ref }}
