@@ -32,7 +32,7 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: Install dependencies
       run: |
-        sudo apt-get update && sudo apt-get install libhdf5-dev libnetcdf-dev libxcb-xinerama0
+        sudo apt-get update && sudo apt-get install libhdf5-dev libnetcdf-dev
         python -m pip install --upgrade pip
         pip install --upgrade jupyter
         pip install 'xbout @ git+https://github.com/boutproject/xBOUT@mayavi-ci-compat'
@@ -41,7 +41,7 @@ jobs:
       if: ${{ matrix.python-version != '3.x' }}
       run: |
         sudo apt-get install xvfb
-        pip install --upgrade mayavi wand numpy vtk PyQt5
+        pip install --upgrade mayavi wand PyQt5
     - name: Test Python scripts
       # Skip for Python-3.11 because Mayavi currently fails to build
       if: ${{ matrix.python-version != '3.x' }}
