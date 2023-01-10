@@ -43,21 +43,22 @@ jobs:
       if: ${{matrix.xbout-version == 'master'}}
       run: |
         pip install 'xbout @ git+https://github.com/boutproject/xBOUT@master'
-    #- name: Install mayavi
-    #  # Skip for Python-3.11 because Mayavi currently fails to build
-    #  if: ${{ matrix.python-version != '3.x' }}
-    #  run: |
-    #    pip install --upgrade mayavi wand
-    #- name: Test Python scripts
-    #  # Skip for Python-3.11 because Mayavi currently fails to build
-    #  if: ${{ matrix.python-version != '3.x' }}
-    #  run: |
-    #    # The brackets are needed so the whole command returns 1 if any script fails.
-    #    # Note, the tests of python scripts must come first, because the
-    #    # jupyter notebook tests work by converting the notebook to a Python
-    #    # script, and we don't want to test those scripts as they will fail due
-    #    # to iPython stuff not being imported.
-    #    (for example in */*.py; do python $example || exit 1; done)
+    - name: Install mayavi
+      # Skip for Python-3.11 because Mayavi currently fails to build
+      if: ${{ matrix.python-version != '3.x' }}
+      run: |
+        sudo apt-get install xvfb
+        pip install --upgrade mayavi wand PyQt5
+    - name: Test mayavi scripts
+      # Skip for Python-3.11 because Mayavi currently fails to build
+      if: ${{ matrix.python-version != '3.x' }}
+      run: |
+        # The brackets are needed so the whole command returns 1 if any script fails.
+        # Note, the tests of python scripts must come first, because the
+        # jupyter notebook tests work by converting the notebook to a Python
+        # script, and we don't want to test those scripts as they will fail due
+        # to iPython stuff not being imported.
+        (for example in elm-pb/3d-movie.py; do ETS_TOOLKIT=null xvfb-run --server-args="-screen 0 1024x768x24" python $example --ci || exit 1; done)
     - name: Test Jupyter notebooks
       run: |
         # The brackets are needed so the whole command returns 1 if any notebook fails.
