@@ -22,6 +22,7 @@ jobs:
     strategy:
       matrix:
         python-version: [3.8, 3.9, '3.10', 3.x]
+        xbout-version: ['release', 'master']
 
     steps:
     - uses: actions/checkout@v2
@@ -33,7 +34,15 @@ jobs:
       run: |
         sudo apt-get update && sudo apt-get install libhdf5-dev libnetcdf-dev
         python -m pip install --upgrade pip
-        pip install --upgrade xbout jupyter
+        pip install --upgrade jupyter
+    - name: Install xbout release
+      if: ${{matrix.xbout-version == 'release'}}
+      run: |
+        pip install --upgrade xbout
+    - name: Install xbout master
+      if: ${{matrix.xbout-version == 'master'}}
+      run: |
+        pip install 'xbout @ git+https://github.com/boutproject/xBOUT@master'
     #- name: Install mayavi
     #  # Skip for Python-3.11 because Mayavi currently fails to build
     #  if: ${{ matrix.python-version != '3.x' }}
