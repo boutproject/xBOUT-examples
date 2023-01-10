@@ -34,7 +34,7 @@ jobs:
       run: |
         sudo apt-get update && sudo apt-get install libhdf5-dev libnetcdf-dev
         python -m pip install --upgrade pip
-        pip install --upgrade jupyter
+        pip install --upgrade jupyter ipympl
     - name: Install xbout release
       if: ${{matrix.xbout-version == 'release'}}
       run: |
