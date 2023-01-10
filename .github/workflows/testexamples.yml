@@ -34,7 +34,8 @@ jobs:
       run: |
         sudo apt-get update && sudo apt-get install libhdf5-dev libnetcdf-dev libxcb-xinerama0
         python -m pip install --upgrade pip
-        pip install --upgrade xbout jupyter
+        pip install --upgrade jupyter
+        pip install 'xbout @ git+https://github.com/boutproject/xBOUT@mayavi-ci-compat'
     - name: Install mayavi
       # Skip for Python-3.11 because Mayavi currently fails to build
       if: ${{ matrix.python-version != '3.x' }}
@@ -50,7 +51,7 @@ jobs:
         # jupyter notebook tests work by converting the notebook to a Python
         # script, and we don't want to test those scripts as they will fail due
         # to iPython stuff not being imported.
-        (for example in */*.py; do ETS_TOOLKIT=null python $example || exit 1; done)
+        (for example in */*.py; do ETS_TOOLKIT=null python $example --ci || exit 1; done)
     - name: Test Jupyter notebooks
       run: |
         # The brackets are needed so the whole command returns 1 if any notebook fails.

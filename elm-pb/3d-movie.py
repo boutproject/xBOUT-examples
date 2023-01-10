@@ -59,6 +59,14 @@ nx = ds.metadata["nx"]
 da = ds[variable].bout.interpolate_parallel(n=16).bout.from_field_aligned()
 
 print("about to do 3d plot...")
+if args.ci:
+    mayavi_figure_args = None
+else:
+    mayavi_figure_args = {
+        "size": (800, 800),
+        "bgcolor": (1.0, 1.0, 1.0),
+        "fgcolor": (0.0, 0.0, 0.0),
+    }
 da.bout.plot3d(
     engine="mayavi",
     style="surface",
@@ -67,11 +75,7 @@ da.bout.plot3d(
     colorbar_font_size=16,
     vmin=None,
     vmax=None,
-    mayavi_figure_args={
-        "size": (800, 800),
-        "bgcolor": (1.0, 1.0, 1.0),
-        "fgcolor": (0.0, 0.0, 0.0),
-    },
+    mayavi_figure_args=mayavi_figure_args,
     mayavi_view=(-40, 80, 8),
     surface_xinds=(nx // 3, 38),
     save_as=save_as,
